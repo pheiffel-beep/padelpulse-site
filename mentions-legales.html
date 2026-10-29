@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PadelPulse — Le carnet de bord du joueur de padel</title>
+<meta name="description" content="Mentions légales de PadelPulse, édité par Panda Atelier.">
+<meta name="theme-color" content="#0B1626">
+<meta property="og:title" content="PadelPulse — Le carnet de bord du joueur de padel">
+<meta property="og:description" content="Mentions légales de PadelPulse, édité par Panda Atelier.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_BE">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Manrope";src:url("fonts/manrope.woff") format("woff");font-weight:200 800;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url("fonts/barlow-condensed-Bold.woff") format("woff");font-weight:700;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url("fonts/barlow-condensed-ExtraBold.woff") format("woff");font-weight:800;font-display:swap}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0B1626; --bg2:#0F1E33; --card:#13233A; --line:#22385A;
+  --ink:#EAF1FA; --muted:#9DB0C8;
+  --terra:#C4552F; --terraLight:#EE8D6B; --court:#1B4F8C; --courtInk:#8DB8EE;
+  --ok:#2FA36B;
+  --wrap:1120px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px; line-height:1.6; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.num{font-family:"Barlow Condensed","Manrope",sans-serif;font-weight:800;letter-spacing:.01em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+/* ---------- en-tête ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(11,22,38,.88);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:1;min-width:0}
+.mark{width:38px;height:38px;border-radius:12px;background:var(--terra);color:#fff;
+  display:grid;place-items:center;font-size:22px;font-weight:800;flex:0 0 auto;
+  font-family:"Barlow Condensed",sans-serif}
+.bname{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.bname b{font-size:18px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.bname em{font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.13em;
+  color:var(--courtInk);text-transform:uppercase}
+.lang{display:flex;gap:2px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:99px;padding:3px}
+.lang a{padding:5px 11px;border-radius:99px;font-size:12.5px;font-weight:800;
+  text-decoration:none;color:var(--muted)}
+.lang a.on{background:var(--court);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--terra);color:#fff;
+  text-decoration:none;font-weight:800;font-size:15px;padding:13px 22px;border-radius:99px;
+  border:none;cursor:pointer;transition:transform .12s,background .15s;white-space:nowrap}
+.btn:hover{background:#A9472A;transform:translateY(-1px)}
+.btn.sm{padding:9px 16px;font-size:13.5px}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn.ghost:hover{background:var(--card);border-color:var(--courtInk)}
+header .btn{flex:0 0 auto}
+@media(max-width:620px){header .btn.sm{display:none}}
+
+/* ---------- héros ---------- */
+.hero{position:relative;overflow:hidden;padding:72px 0 0}
+.hero::before{content:"";position:absolute;inset:-20% -30% auto -30%;height:640px;
+  background:radial-gradient(60% 70% at 50% 0%,rgba(27,79,140,.55),transparent 70%);
+  pointer-events:none}
+.hero-in{position:relative;display:grid;gap:44px;align-items:center}
+@media(min-width:940px){.hero-in{grid-template-columns:1.05fr .95fr;gap:56px}}
+.eyebrow{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--courtInk);background:rgba(27,79,140,.22);
+  border:1px solid rgba(141,184,238,.25);padding:7px 14px;border-radius:99px;margin-bottom:22px}
+h1{font-size:clamp(38px,7.2vw,62px);line-height:1.04;letter-spacing:-.035em;font-weight:800}
+h1 em{font-style:normal;color:var(--terraLight)}
+.lede{font-size:clamp(17px,2.1vw,20px);color:var(--muted);margin-top:20px;max-width:30em}
+.cta{display:flex;flex-wrap:wrap;gap:13px;align-items:center;margin-top:32px}
+.price{font-size:14px;color:var(--muted)}
+.price b{color:var(--ink);font-weight:800}
+.meta{margin-top:18px;font-size:13.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:7px 16px}
+.meta i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--ok);flex:0 0 auto}
+
+/* ---------- téléphone ---------- */
+.phone{position:relative;width:min(300px,78vw);margin:0 auto;
+  border:9px solid #1C2B42;border-radius:42px;background:#1C2B42;
+  box-shadow:0 34px 70px rgba(0,0,0,.55),0 0 0 1px rgba(141,184,238,.14)}
+.phone::after{content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:84px;height:5px;border-radius:99px;background:rgba(255,255,255,.22)}
+.phone img{border-radius:33px}
+.hero .phone{margin-bottom:-46px}
+.hero{padding-bottom:0}
+
+/* ---------- sections ---------- */
+section{padding:82px 0}
+.band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kicker{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--courtInk);margin-bottom:12px}
+h2{font-size:clamp(28px,4.4vw,42px);line-height:1.12;letter-spacing:-.03em;font-weight:800}
+h3{font-size:20px;font-weight:800;letter-spacing:-.015em}
+.sub{color:var(--muted);margin-top:14px;max-width:46em;font-size:17px}
+
+.grid4{display:grid;gap:16px;margin-top:40px;grid-template-columns:1fr}
+@media(min-width:680px){.grid4{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.grid4{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.card .ic{width:42px;height:42px;border-radius:13px;background:rgba(27,79,140,.3);
+  color:var(--courtInk);display:grid;place-items:center;margin-bottom:16px}
+.card.accent .ic{background:rgba(196,85,47,.18);color:var(--terraLight)}
+.card p{color:var(--muted);font-size:15.5px;margin-top:9px}
+
+/* ---------- fonctionnalités ---------- */
+.feat{display:grid;gap:36px;align-items:center;padding:46px 0;border-top:1px solid var(--line)}
+.feat:first-of-type{border-top:none}
+@media(min-width:900px){
+  .feat{grid-template-columns:1fr 1fr;gap:64px}
+  .feat:nth-child(even) .feat-txt{order:2}
+}
+.feat .phone{width:min(258px,70vw)}
+.feat h3{font-size:clamp(23px,3vw,29px);letter-spacing:-.025em}
+.feat p{color:var(--muted);margin-top:13px;font-size:16.5px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{font-size:12.5px;font-weight:700;color:var(--courtInk);background:rgba(27,79,140,.26);
+  border:1px solid rgba(141,184,238,.2);padding:5px 12px;border-radius:99px}
+
+/* ---------- clair / sombre ---------- */
+.duo{display:grid;gap:30px;margin-top:40px;grid-template-columns:1fr;justify-items:center}
+@media(min-width:720px){.duo{grid-template-columns:1fr 1fr;gap:48px}}
+.duo figure{text-align:center;max-width:300px}
+.duo figcaption{margin-top:18px;font-size:13px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--courtInk)}
+.duo .phone{width:min(268px,72vw)}
+
+/* ---------- citation / pour qui ---------- */
+.quote{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--terra);
+  border-radius:20px;padding:30px 32px;margin-top:34px;font-size:18px;color:var(--muted)}
+.quote b{color:var(--ink)}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:36px;display:grid;gap:11px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:18px 22px;transition:border-color .15s}
+details[open]{border-color:var(--courtInk)}
+summary{cursor:pointer;font-weight:800;font-size:16.5px;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:23px;color:var(--courtInk);font-weight:700;
+  line-height:1;flex:0 0 auto}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);margin-top:13px;font-size:16px}
+
+/* ---------- CTA final ---------- */
+.final{text-align:center;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:auto -30% -40% -30%;height:520px;
+  background:radial-gradient(55% 60% at 50% 100%,rgba(196,85,47,.28),transparent 70%)}
+.final .wrap{position:relative}
+.final .cta{justify-content:center}
+.final .sub{margin-left:auto;margin-right:auto}
+
+/* ---------- pied de page ---------- */
+footer{border-top:1px solid var(--line);padding:46px 0 60px;background:var(--bg2)}
+.fgrid{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14.5px}
+footer nav a{color:var(--muted);text-decoration:none}
+footer nav a:hover{color:var(--terraLight)}
+.legalnote{font-size:13px;color:var(--muted);margin-top:26px;line-height:1.7}
+
+/* ---------- pages légales ---------- */
+.doc{padding:52px 0 80px;max-width:760px}
+.doc h1{font-size:clamp(30px,5vw,42px);margin-bottom:10px}
+.doc h2{font-size:21px;margin-top:38px;margin-bottom:10px}
+.doc p,.doc li{color:var(--muted);font-size:16.5px}
+.doc p{margin-top:12px}
+.doc ul{margin-top:12px;padding-left:22px}
+.doc li{margin-bottom:7px}
+.doc .back{display:inline-block;color:var(--courtInk);text-decoration:none;
+  font-weight:800;font-size:14px;margin-bottom:26px}
+.doc .upd{font-size:13.5px;color:var(--muted);margin-top:40px;padding-top:18px;
+  border-top:1px solid var(--line)}
+.todo{background:rgba(196,85,47,.12);border:1px dashed var(--terra);border-radius:12px;
+  padding:12px 16px;color:var(--terraLight);font-size:15px;font-weight:700;display:inline-block}
+</style>
+</head>
+<body>
+
+<header><div class="wrap bar">
+  <a class="brand" href="index.html">
+    <span class="mark">P</span>
+    <span class="bname"><b>PadelPulse</b><em>Mon carnet padel</em></span>
+  </a>
+  <nav class="lang">
+    <a class="on" href="#">FR</a>
+    <a class="" href="nl.html">NL</a>
+  </nav>
+  <a class="btn sm" href="https://play.google.com/store/apps/details?id=com.padelpulse.carnet" rel="noopener">Télécharger</a>
+</div></header>
+<div class="wrap doc">
+  <a class="back" href="index.html">← Retour à l'accueil</a>
+  <h1>Mentions légales</h1>
+  
+<h2>Éditeur du site et de l'application</h2>
+<p>
+  <strong>Nom commercial :</strong> Panda Atelier<br>
+  <strong>Responsable :</strong> Philippe Parys<br>
+  <strong>Adresse :</strong> Rue Jacques Lion 9a12, 6040 Charleroi, Belgique<br>
+  <strong>E-mail :</strong> <a href="mailto:contact@padelpulse.app">contact@padelpulse.app</a><br>
+  <strong>Numéro d'entreprise et de TVA :</strong> BE 0741.463.743
+</p>
+
+<h2>Hébergement</h2>
+<p>Le site est hébergé par GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco,
+CA 94107, États-Unis.</p>
+<p>Le nom de domaine est enregistré auprès d'OVH SAS, 2 rue Kellermann, 59100 Roubaix, France.</p>
+
+<h2>Propriété intellectuelle</h2>
+<p>L'application PadelPulse, son nom, son logo, ses textes et ses visuels sont la propriété de
+l'éditeur. Toute reproduction ou réutilisation, totale ou partielle, sans autorisation écrite
+préalable est interdite.</p>
+
+<h2>Conditions de vente</h2>
+<p>L'application est vendue exclusivement via Google Play, au prix de 6,99 € TVA comprise, en
+paiement unique. La vente, la facturation, le droit de rétractation et le service après-vente
+relèvent des conditions générales de Google Play.</p>
+
+<h2>Limitation de responsabilité</h2>
+<p>PadelPulse est un outil de suivi personnel. L'éditeur ne peut être tenu responsable d'une
+perte de données résultant d'une désinstallation, d'une réinitialisation de l'appareil ou de
+l'absence de sauvegarde par l'utilisateur. Il est recommandé d'utiliser régulièrement la
+fonction de sauvegarde.</p>
+
+<h2>Indépendance</h2>
+<p>PadelPulse est une application indépendante. Elle n'est affiliée à aucune fédération, ligue
+ou club de padel, ni à aucun fabricant de matériel.</p>
+
+<h2>Règlement des litiges</h2>
+<p>En cas de litige, le consommateur peut recourir à la plateforme européenne de règlement en
+ligne des litiges, accessible à l'adresse <a href="https://ec.europa.eu/consumers/odr"
+rel="noopener">ec.europa.eu/consumers/odr</a>.</p>
+
+  <p class="upd">Dernière mise à jour : 29 octobre 2026.</p>
+</div>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <a class="brand" href="index.html" style="flex:0 0 auto">
+      <span class="mark">P</span>
+      <span class="bname"><b>PadelPulse</b><em>Panda Atelier</em></span>
+    </a>
+    <nav><a href="mailto:contact@padelpulse.app">Contact</a><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Politique de confidentialité</a><a href="https://play.google.com/store/apps/details?id=com.padelpulse.carnet" rel="noopener">Google Play</a></nav>
+  </div>
+  <p class="legalnote">PadelPulse est une application indépendante, sans lien avec une fédération ou un club. Google Play et le logo Google Play sont des marques de Google LLC.<br>© 2026 Panda Atelier. Tous droits réservés.</p>
+</div></footer>
+</body></html>

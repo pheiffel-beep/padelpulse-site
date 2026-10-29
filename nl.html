@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PadelPulse — Het logboek van de padelspeler</title>
+<meta name="description" content="Noteer je padelmatchen in twintig seconden en volg je vooruitgang. Eenmalige aankoop van € 6,99, werkt offline, verzamelt geen gegevens. Android, België.">
+<meta name="theme-color" content="#0B1626">
+<meta property="og:title" content="PadelPulse — Het logboek van de padelspeler">
+<meta property="og:description" content="Noteer je padelmatchen in twintig seconden en volg je vooruitgang. Eenmalige aankoop van € 6,99, werkt offline, verzamelt geen gegevens. Android, België.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_BE">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+@font-face{font-family:"Manrope";src:url("fonts/manrope.woff") format("woff");font-weight:200 800;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url("fonts/barlow-condensed-Bold.woff") format("woff");font-weight:700;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url("fonts/barlow-condensed-ExtraBold.woff") format("woff");font-weight:800;font-display:swap}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0B1626; --bg2:#0F1E33; --card:#13233A; --line:#22385A;
+  --ink:#EAF1FA; --muted:#9DB0C8;
+  --terra:#C4552F; --terraLight:#EE8D6B; --court:#1B4F8C; --courtInk:#8DB8EE;
+  --ok:#2FA36B;
+  --wrap:1120px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px; line-height:1.6; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+.num{font-family:"Barlow Condensed","Manrope",sans-serif;font-weight:800;letter-spacing:.01em}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+
+/* ---------- en-tête ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(11,22,38,.88);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:1;min-width:0}
+.mark{width:38px;height:38px;border-radius:12px;background:var(--terra);color:#fff;
+  display:grid;place-items:center;font-size:22px;font-weight:800;flex:0 0 auto;
+  font-family:"Barlow Condensed",sans-serif}
+.bname{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.bname b{font-size:18px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.bname em{font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.13em;
+  color:var(--courtInk);text-transform:uppercase}
+.lang{display:flex;gap:2px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:99px;padding:3px}
+.lang a{padding:5px 11px;border-radius:99px;font-size:12.5px;font-weight:800;
+  text-decoration:none;color:var(--muted)}
+.lang a.on{background:var(--court);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--terra);color:#fff;
+  text-decoration:none;font-weight:800;font-size:15px;padding:13px 22px;border-radius:99px;
+  border:none;cursor:pointer;transition:transform .12s,background .15s;white-space:nowrap}
+.btn:hover{background:#A9472A;transform:translateY(-1px)}
+.btn.sm{padding:9px 16px;font-size:13.5px}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn.ghost:hover{background:var(--card);border-color:var(--courtInk)}
+header .btn{flex:0 0 auto}
+@media(max-width:620px){header .btn.sm{display:none}}
+
+/* ---------- héros ---------- */
+.hero{position:relative;overflow:hidden;padding:72px 0 0}
+.hero::before{content:"";position:absolute;inset:-20% -30% auto -30%;height:640px;
+  background:radial-gradient(60% 70% at 50% 0%,rgba(27,79,140,.55),transparent 70%);
+  pointer-events:none}
+.hero-in{position:relative;display:grid;gap:44px;align-items:center}
+@media(min-width:940px){.hero-in{grid-template-columns:1.05fr .95fr;gap:56px}}
+.eyebrow{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--courtInk);background:rgba(27,79,140,.22);
+  border:1px solid rgba(141,184,238,.25);padding:7px 14px;border-radius:99px;margin-bottom:22px}
+h1{font-size:clamp(38px,7.2vw,62px);line-height:1.04;letter-spacing:-.035em;font-weight:800}
+h1 em{font-style:normal;color:var(--terraLight)}
+.lede{font-size:clamp(17px,2.1vw,20px);color:var(--muted);margin-top:20px;max-width:30em}
+.cta{display:flex;flex-wrap:wrap;gap:13px;align-items:center;margin-top:32px}
+.price{font-size:14px;color:var(--muted)}
+.price b{color:var(--ink);font-weight:800}
+.meta{margin-top:18px;font-size:13.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:7px 16px}
+.meta i{font-style:normal;display:inline-flex;align-items:center;gap:6px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--ok);flex:0 0 auto}
+
+/* ---------- téléphone ---------- */
+.phone{position:relative;width:min(300px,78vw);margin:0 auto;
+  border:9px solid #1C2B42;border-radius:42px;background:#1C2B42;
+  box-shadow:0 34px 70px rgba(0,0,0,.55),0 0 0 1px rgba(141,184,238,.14)}
+.phone::after{content:"";position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:84px;height:5px;border-radius:99px;background:rgba(255,255,255,.22)}
+.phone img{border-radius:33px}
+.hero .phone{margin-bottom:-46px}
+.hero{padding-bottom:0}
+
+/* ---------- sections ---------- */
+section{padding:82px 0}
+.band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kicker{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--courtInk);margin-bottom:12px}
+h2{font-size:clamp(28px,4.4vw,42px);line-height:1.12;letter-spacing:-.03em;font-weight:800}
+h3{font-size:20px;font-weight:800;letter-spacing:-.015em}
+.sub{color:var(--muted);margin-top:14px;max-width:46em;font-size:17px}
+
+.grid4{display:grid;gap:16px;margin-top:40px;grid-template-columns:1fr}
+@media(min-width:680px){.grid4{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.grid4{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.card .ic{width:42px;height:42px;border-radius:13px;background:rgba(27,79,140,.3);
+  color:var(--courtInk);display:grid;place-items:center;margin-bottom:16px}
+.card.accent .ic{background:rgba(196,85,47,.18);color:var(--terraLight)}
+.card p{color:var(--muted);font-size:15.5px;margin-top:9px}
+
+/* ---------- fonctionnalités ---------- */
+.feat{display:grid;gap:36px;align-items:center;padding:46px 0;border-top:1px solid var(--line)}
+.feat:first-of-type{border-top:none}
+@media(min-width:900px){
+  .feat{grid-template-columns:1fr 1fr;gap:64px}
+  .feat:nth-child(even) .feat-txt{order:2}
+}
+.feat .phone{width:min(258px,70vw)}
+.feat h3{font-size:clamp(23px,3vw,29px);letter-spacing:-.025em}
+.feat p{color:var(--muted);margin-top:13px;font-size:16.5px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{font-size:12.5px;font-weight:700;color:var(--courtInk);background:rgba(27,79,140,.26);
+  border:1px solid rgba(141,184,238,.2);padding:5px 12px;border-radius:99px}
+
+/* ---------- clair / sombre ---------- */
+.duo{display:grid;gap:30px;margin-top:40px;grid-template-columns:1fr;justify-items:center}
+@media(min-width:720px){.duo{grid-template-columns:1fr 1fr;gap:48px}}
+.duo figure{text-align:center;max-width:300px}
+.duo figcaption{margin-top:18px;font-size:13px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--courtInk)}
+.duo .phone{width:min(268px,72vw)}
+
+/* ---------- citation / pour qui ---------- */
+.quote{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--terra);
+  border-radius:20px;padding:30px 32px;margin-top:34px;font-size:18px;color:var(--muted)}
+.quote b{color:var(--ink)}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:36px;display:grid;gap:11px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:18px 22px;transition:border-color .15s}
+details[open]{border-color:var(--courtInk)}
+summary{cursor:pointer;font-weight:800;font-size:16.5px;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:23px;color:var(--courtInk);font-weight:700;
+  line-height:1;flex:0 0 auto}
+details[open] summary::after{content:"−"}
+details p{color:var(--muted);margin-top:13px;font-size:16px}
+
+/* ---------- CTA final ---------- */
+.final{text-align:center;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;inset:auto -30% -40% -30%;height:520px;
+  background:radial-gradient(55% 60% at 50% 100%,rgba(196,85,47,.28),transparent 70%)}
+.final .wrap{position:relative}
+.final .cta{justify-content:center}
+.final .sub{margin-left:auto;margin-right:auto}
+
+/* ---------- pied de page ---------- */
+footer{border-top:1px solid var(--line);padding:46px 0 60px;background:var(--bg2)}
+.fgrid{display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;align-items:flex-start}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14.5px}
+footer nav a{color:var(--muted);text-decoration:none}
+footer nav a:hover{color:var(--terraLight)}
+.legalnote{font-size:13px;color:var(--muted);margin-top:26px;line-height:1.7}
+
+/* ---------- pages légales ---------- */
+.doc{padding:52px 0 80px;max-width:760px}
+.doc h1{font-size:clamp(30px,5vw,42px);margin-bottom:10px}
+.doc h2{font-size:21px;margin-top:38px;margin-bottom:10px}
+.doc p,.doc li{color:var(--muted);font-size:16.5px}
+.doc p{margin-top:12px}
+.doc ul{margin-top:12px;padding-left:22px}
+.doc li{margin-bottom:7px}
+.doc .back{display:inline-block;color:var(--courtInk);text-decoration:none;
+  font-weight:800;font-size:14px;margin-bottom:26px}
+.doc .upd{font-size:13.5px;color:var(--muted);margin-top:40px;padding-top:18px;
+  border-top:1px solid var(--line)}
+.todo{background:rgba(196,85,47,.12);border:1px dashed var(--terra);border-radius:12px;
+  padding:12px 16px;color:var(--terraLight);font-size:15px;font-weight:700;display:inline-block}
+</style>
+</head>
+<body>
+
+<header><div class="wrap bar">
+  <a class="brand" href="nl.html">
+    <span class="mark">P</span>
+    <span class="bname"><b>PadelPulse</b><em>Mijn padelboek</em></span>
+  </a>
+  <nav class="lang">
+    <a class="" href="index.html">FR</a>
+    <a class="on" href="#">NL</a>
+  </nav>
+  <a class="btn sm" href="https://play.google.com/store/apps/details?id=com.padelpulse.carnet" rel="noopener">Downloaden</a>
+</div></header>
+
+<div class="hero"><div class="wrap hero-in">
+  <div>
+    <span class="eyebrow">Het logboek van de padelspeler</span>
+    <h1>Jouw padel,<br><em>in cijfers.</em></h1>
+    <p class="lede">Noteer je matchen in twintig seconden. PadelPulse berekent je statistieken, je beste duo&#x27;s en je vooruitgang — en alles blijft op je telefoon.</p>
+    <div class="cta">
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.padelpulse.carnet" rel="noopener">
+        <svg width="19" height="21" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M1.6.6C1.2 1 1 1.6 1 2.4v21.2c0 .8.2 1.4.6 1.8l.1.1L13.6 13.7v-.3L1.7.5l-.1.1z"/><path d="M17.5 17.8l-3.9-3.9v-.3l3.9-3.9.1.1 4.7 2.6c1.3.8 1.3 2 0 2.8l-4.7 2.6h-.1z"/><path d="M17.6 17.7L13.6 13.7 1.6 25.6c.4.5 1.1.5 1.9.1l14.1-8"/><path d="M17.6 9.7L3.5.3C2.7-.1 2 0 1.6.4l12 11.9 4-2.6z"/></svg>
+        Downloaden op Google Play
+      </a>
+      <span class="price"><b>€ 6,99</b> · eenmalige aankoop, geen abonnement</span>
+    </div>
+    <div class="meta"><i><span class="dot"></span>Android</i><i><span class="dot"></span>België</i><i><span class="dot"></span>Nederlands en Frans</i><i><span class="dot"></span>Werkt offline</i></div>
+  </div>
+  <div class="phone"><img src="img/01-accueil.png" alt="Het overzicht en de statistiekkaarten" fetchpriority="high" width="780" height="1688"></div>
+</div></div>
+
+<section class="band">
+  <div class="wrap">
+    <p class="kicker">Waarom deze</p>
+    <h2>Een padelapp die niets van je vraagt.</h2>
+    <div class="grid4"><div class="card"><div class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><h3>Gemaakt voor Belgisch padel</h3><p>De Belgische wedstrijdformules, poulematchen in 9 games, en de volledige app in het Nederlands én het Frans.</p></div><div class="card accent"><div class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div><h3>Eén aankoop, geen abonnement</h3><p>Eenmalig € 6,99, updates inbegrepen. Geen maandelijkse afhouding, geen beperkte versie, geen reclame.</p></div><div class="card"><div class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><h3>Je gegevens blijven van jou</h3><p>Geen account nodig, niets wordt verstuurd. Alles staat op je telefoon, en je kunt het wanneer je wilt naar een bestand exporteren.</p></div><div class="card accent"><div class="ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3>Een match in 20 seconden</h3><p>De eerste letters van een naam volstaan, en het formulier vult zichzelf in met de gegevens van je vorige match.</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Wat je kunt bijhouden</p>
+    <h2>Van het wedstrijdblad tot de balans van het seizoen.</h2>
+    <div style="margin-top:26px"><div class="feat"><div class="feat-txt"><h3>Elke match, in detail</h3><p>Score, partner, tegenstanders, club, positie op het terrein, hoe je je voelde en tactische labels. Vriendschappelijk of competitie, alles staat erin.</p><div class="tags"><span class="tag">Score en formule</span><span class="tag">Gevoel</span><span class="tag">Tactische labels</span><span class="tag">Vriendschappelijk / Competitie</span></div></div><div class="phone"><img src="img/04-matchs.png" alt="De lijst met opgeslagen matchen" loading="lazy" decoding="async" width="780" height="1688"></div></div><div class="feat"><div class="feat-txt"><h3>Je statistieken, eindelijk duidelijk</h3><p>Winstpercentage, vorm over de laatste vijf matchen, meest bezochte club, beste duo. Per week, per maand of over je volledige historiek.</p><div class="tags"><span class="tag">Winstpercentage</span><span class="tag">Recente vorm</span><span class="tag">Beste duo</span><span class="tag">Favoriete club</span></div></div><div class="phone"><img src="img/02-recap.png" alt="Het overzicht en de statistiekkaarten" loading="lazy" decoding="async" width="780" height="1688"></div></div><div class="feat"><div class="feat-txt"><h3>Je balans tegen elke speler</h3><p>Tik op een naam en vind alle matchen die je met of tegen hem speelde. Met, indien nodig, een privénotitie voor wie zijn niveau wat optimistisch inschat.</p><div class="tags"><span class="tag">Met en tegen</span><span class="tag">Ratio per speler</span><span class="tag">Privénotitie</span></div></div><div class="phone"><img src="img/03-joueurs.png" alt="De balans tegen elke speler" loading="lazy" decoding="async" width="780" height="1688"></div></div><div class="feat"><div class="feat-txt"><h3>Je lessenboek</h3><p>Het thema, de coach en de tips die je moet onthouden. Zo lees je nog even na wat je trainer zei, net voor je het terrein opstapt.</p><div class="tags"><span class="tag">Thema en coach</span><span class="tag">Tips</span><span class="tag">Historiek</span></div></div><div class="phone"><img src="img/05-cours.png" alt="Het lessenboek" loading="lazy" decoding="async" width="780" height="1688"></div></div><div class="feat"><div class="feat-txt"><h3>Je materiaal, opgevolgd</h3><p>Rackets, overgrips en schoenen, met het aantal gespeelde matchen per stuk. Zo weet je eindelijk wanneer je je overgrip moet vervangen.</p><div class="tags"><span class="tag">Rackets</span><span class="tag">Overgrips</span><span class="tag">Schoenen</span><span class="tag">Matchteller</span></div></div><div class="phone"><img src="img/06-materiel.png" alt="De opvolging van je materiaal" loading="lazy" decoding="async" width="780" height="1688"></div></div></div>
+  </div>
+</section>
+
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Licht of donker</p>
+    <h2>Zoals jij het wilt, dag en nacht.</h2>
+    <p class="sub">De app volgt de instelling van je telefoon, of houdt het thema dat jij kiest. De donkere modus leest comfortabel in een overdekte club &#x27;s avonds.</p>
+    <div class="duo">
+      <figure><div class="phone"><img src="img/light-01-accueil.png" alt="De app in lichte modus" loading="lazy" decoding="async" width="780" height="1688"></div>
+        <figcaption>Lichte modus</figcaption></figure>
+      <figure><div class="phone"><img src="img/01-accueil.png" alt="De app in donkere modus" loading="lazy" decoding="async" width="780" height="1688"></div>
+        <figcaption>Donkere modus</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <p class="kicker">Voor wie</p>
+    <h2>Herken je jezelf hierin? Dan is ze voor jou.</h2>
+    <div class="quote">Je speelt in een club, recreatief of in competitie. Je noteert je resultaten in de notities van je telefoon, op een papiertje, of helemaal niet. En je vraagt je af <b>of je echt vooruitgaat</b>, met wie je het vaakst wint, en waarom het sommige avonden gewoon niet lukt. PadelPulse is gemaakt om die vragen te beantwoorden.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Veelgestelde vragen</p>
+    <h2>Wat men ons het vaakst vraagt.</h2>
+    <div class="faq"><details><summary>Worden mijn gegevens ergens naartoe gestuurd&nbsp;?</summary><p>Nee. Er is geen account, geen server, geen verbinding. Alles wordt opgeslagen in het geheugen van je telefoon. Je kunt een back-up naar een bestand exporteren en bewaren waar je wilt.</p></details><details><summary>Moet ik een abonnement betalen&nbsp;?</summary><p>Nee. De app kost eenmalig € 6,99, updates inbegrepen. Er zijn geen in-app-aankopen en geen reclame.</p></details><details><summary>Werkt ze zonder internet&nbsp;?</summary><p>Volledig. Je kunt een match invoeren in een club zonder bereik, de app heeft nooit een verbinding nodig.</p></details><details><summary>Is ze beschikbaar op iPhone&nbsp;?</summary><p>Nog niet. De iOS-versie is in voorbereiding.</p></details><details><summary>Verlies ik alles als ik van telefoon verander&nbsp;?</summary><p>Nee. De app maakt een back-upbestand dat je naar jezelf kunt sturen via WhatsApp of mail, of in de cloud kunt zetten, en daarna op je nieuwe telefoon herstellen.</p></details><details><summary>In welke talen&nbsp;?</summary><p>Nederlands en Frans, met een keuzeschakelaar in de instellingen. Je kunt op elk moment van taal wisselen.</p></details></div>
+  </div>
+</section>
+
+<section class="final band">
+  <div class="wrap">
+    <h2>Je volgende match verdient beter dan een notitie op je telefoon.</h2>
+    <p class="sub">Sluit je aan bij de spelers die hun vooruitgang eindelijk volgen.</p>
+    <div class="cta">
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.padelpulse.carnet" rel="noopener">Downloaden op Google Play</a>
+      <span class="price"><b>€ 6,99</b> · eenmalige aankoop, geen abonnement</span>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <a class="brand" href="nl.html" style="flex:0 0 auto">
+      <span class="mark">P</span>
+      <span class="bname"><b>PadelPulse</b><em>Panda Atelier</em></span>
+    </a>
+    <nav><a href="mailto:contact@padelpulse.app">Contact</a><a href="juridisch.html">Juridische informatie</a><a href="privacy.html">Privacybeleid</a><a href="https://play.google.com/store/apps/details?id=com.padelpulse.carnet" rel="noopener">Google Play</a></nav>
+  </div>
+  <p class="legalnote">PadelPulse is een onafhankelijke app, zonder band met een federatie of club. Google Play en het Google Play-logo zijn handelsmerken van Google LLC.<br>© 2026 Panda Atelier. Alle rechten voorbehouden.</p>
+</div></footer>
+</body></html>

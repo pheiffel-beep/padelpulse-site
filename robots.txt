@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://padelpulse.app/sitemap.xml
